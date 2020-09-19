@@ -12,4 +12,10 @@ const AdditionalFeature = props => {
   );
 };
 
+// const mapStateToProps = (state) => {
+//   return {
+
+//   }
+// }
+
 export default connect(() => {}, {})(AdditionalFeature);

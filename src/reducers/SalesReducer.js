@@ -19,10 +19,10 @@ const initialState = {
 
   export const SalesReducer = (state = initialState, action) => {
     switch(action.type) {
-        case ADD_PART:
-            return {
-                
-            }
+        // case ADD_PART:
+        //     return {
+
+        //     }
 
         default: return state;
     }

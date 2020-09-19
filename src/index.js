@@ -11,6 +11,8 @@ import { SalesReducer } from './reducers/SalesReducer';
 
 const store = createStore(SalesReducer);
 
+console.log(store);
+
 const rootElement = document.getElementById('root');
 ReactDOM.render(
 <Provider store={store}>
