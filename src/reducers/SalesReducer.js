@@ -1,4 +1,5 @@
-import { ADD_PART } from '../actions/SalesAction';
+import { ADD_PART, REMOVE_PART } from '../actions/SalesAction';
+
 
 const initialState = {
     additionalPrice: 0,
@@ -19,10 +20,38 @@ const initialState = {
 
   export const SalesReducer = (state = initialState, action) => {
     switch(action.type) {
-        // case ADD_PART:
-        //     return {
-
-        //     }
+        case ADD_PART:
+            return {
+              ...state,
+              car: {
+                ...state.car,
+                features: [
+                  ...state.car.features,
+                  action.payload
+                ]
+              },
+             additionalPrice: state.additionalPrice + action.payload.price,
+              additionalFeatures: state.additionalFeatures.filter((feature) => {
+                if(feature.id !== action.payload.id)
+                return feature
+              })
+            }
+          case REMOVE_PART:
+            return {
+              ...state,
+              car: {
+                ...state.car,
+                features: state.car.features.filter((feature) => {
+                  if(feature.id !== action.payload.id)
+                  return feature
+                })
+              },
+              additionalPrice: state.additionalPrice - action.payload.price,
+              additionalFeatures: [
+                ...state.additionalFeatures,
+                action.payload
+              ]
+            }
 
         default: return state;
     }

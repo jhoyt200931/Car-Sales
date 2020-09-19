@@ -5,11 +5,12 @@ import App from './App';
 import 'bulma/css/bulma.css';
 import './styles.scss';
 
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import { SalesReducer } from './reducers/SalesReducer';
-
-const store = createStore(SalesReducer);
+import logger from 'redux-logger';
+ 
+const store = createStore(SalesReducer, applyMiddleware(logger));
 
 console.log(store);
 
